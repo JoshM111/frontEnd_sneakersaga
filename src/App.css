@@ -1,0 +1,131 @@
+.App {
+  max-width: 800px;
+  margin: auto;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 50px;
+  color: red;
+}
+
+h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+textarea {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: gray;
+}
+
+.invButtons {
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.registration {
+  text-align: center;
+}
+
+tablet {
+  border-collapse: collapse;
+  margin: 20px 10px;
+}
+
+th {
+  padding: 12px 0px;
+  color: white;
+  background-color: blue;
+}
+
+td, th {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #cfcfcf;
+}
+
+tr:hover {
+  background-color: #8a8a8a;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  height: 35px;
+  margin: 0px 10px;
+  padding: 5px 20px;
+  border: black;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  background-color: green;
+  font-size: 16px;
+  text-align: center;
+}
+
+.error-text {
+  color: red;
+  font-style: italic;
+  margin-left: 25px;
+  margin-bottom: 25px;
+}
+
+.deleteBtn {
+  color: black;
+  background-color: red;
+}
+
+.homeBtn {
+  color: black;
+  background-color: white;
+  border: 1px;
+  text-align: center;
+}
+
+.submitBtn {
+  color: white;
+  background-color: blue;
+}
+
+.debug {
+  border: 1px solid red;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center {
+  text-align: center;
+}
+
+hr {
+  margin: 25px;
+}
