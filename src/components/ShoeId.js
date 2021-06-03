@@ -7,6 +7,7 @@ const ShoeId = (props) => {
   const [ sneaker, setSneaker ] = useState({});
   const [ review, setReview ] = useState([]);
 
+
   useEffect(() => {
     axios
       .get("http://18.117.145.31/sneaker/" + props.sneaker_id)

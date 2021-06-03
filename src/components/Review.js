@@ -5,7 +5,7 @@ import { navigate, Link } from "@reach/router";
 const Review = (props) => {
   const [ sneakerReview, setSneakerReview ] = useState({});
   const [ oneCreator, setOneCreator ] = useState([]);
-  const [ user, setUser ] = useState({});
+  const [ allUsers, setAllUsers ] = useState([]);
 
   useEffect(() => {
     axios
@@ -20,15 +20,16 @@ const Review = (props) => {
   }, []);
   
   
-  const getCreator = () => {
+  const getCreator = (userObject) => {
+    console.log(userObject);
     axios
-      .get("http://18.117.145.31/review/" + .creator)
+      .get("http://18.117.145.31/review/")
       .then((res) => {
         console.log(res.data);
         let users = res.data;
+        console.log(`${userObject.id}`);
         console.log(users);
-        console.log(users.creator)
-        let filteredUser = users.filter(y => y.creator === user.id);
+        let filteredUser = users.filter(y => y.creator === userObject.id);
         setOneCreator(filteredUser);
         console.log(filteredUser);
       })
@@ -36,7 +37,12 @@ const Review = (props) => {
         console.log(err);
       });
   };
+  // const getUser = () =>{
+  //   let user = allUsers.filter(y => y.id === `${y.props.review.creator}`);
+  //     console.log(user);
+  //   return user.first_name
 
+  // }
 
 
   const submitHandler = (e) => {
@@ -63,23 +69,37 @@ const Review = (props) => {
       ></textarea>
       <br />
       <div className="container">
-        <p>Reviews: 
+        <ul>Reviews: 
+          {/* <li>
           { 
             props.reviews ? props.reviews
             .map(x => 
-              <li key={x.id}>{x.review} : {x.creator.first_name}{x.creator.last_name} </li>
+              <li key={x.id}>
+                {x.review}  
+                Reviewed By: 
+                {
+                  getUser(x.creator)
+                }
+                </li>
               
             )
             :
             ''
           }
-        </p>
-        {/* <p> 
-            {
-              creator 
-              .map(name => <li key={name.id}>{name.first_name}{name.last_name}</li>)
-            }      
-        </p> */}
+          </li> */}
+          <li>
+            { 
+              props.reviews ? props.reviews
+              .map(x => 
+                <li key={x.id}>{x.review} Reviewed By: {x.creator}</li>
+                
+              )
+              :
+              ''
+            }
+          
+          </li>
+        </ul>
       </div>
       <div className="invButtons">
         <button onSubmit={submitHandler} className="submitBtn">
