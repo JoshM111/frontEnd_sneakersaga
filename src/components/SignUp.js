@@ -12,12 +12,11 @@ const Signup = (props) => {
   const onSubmitHandler = e => {
     e.preventDefault();
 
-    axios.post('http://18.117.145.31/', {
-      firstName,
-      lastName,
+    axios.post('http://18.117.145.31/user/register/', {
+      first_name : firstName,
+      last_name : lastName,
       email,
-      password,
-      confPassword
+      password
     })
     .then(res=>console.log(res))
     .catch(err=>console.log(err))
@@ -59,7 +58,7 @@ const Signup = (props) => {
             name="confirmPassword"
             onChange={(e) => setConfPassword(e.target.value)}
           />
-          <button onClick={ () => navigate('/index')} className="homeBtn">Submit</button>
+          <button onClick={() => navigate("/signin")} className="homeBtn">Submit</button>
         </div>
       </form>
     </div>

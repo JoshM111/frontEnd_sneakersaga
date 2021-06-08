@@ -5,8 +5,7 @@ import Review from "./Review";
 
 const ShoeId = (props) => {
   const [ sneaker, setSneaker ] = useState({});
-  const [ review, setReview ] = useState([]);
-
+  const [ isLoaded, setIsLoaded ] = useState(false);
 
   useEffect(() => {
     axios
@@ -14,30 +13,13 @@ const ShoeId = (props) => {
       .then((res) => {
         console.log(res.data);
         setSneaker(res.data);
+        setIsLoaded(true);
         console.log(res.data);
-        getReview(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-  const getReview = (sneakerObject) => {
-    console.log(sneakerObject.id);
-    axios
-      .get("http://18.117.145.31/review/")
-      .then((res) => {
-        console.log(res.data);
-        let reviews = res.data;
-        console.log(sneakerObject);
-        let filteredReviews = reviews.filter(x => x.sneaker_review === sneakerObject.id);
-        setReview(filteredReviews);
-        console.log(filteredReviews);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
 
   return (
     <div>
@@ -51,8 +33,10 @@ const ShoeId = (props) => {
         {new Date(sneaker.release_year).toLocaleDateString("en-us")}
       </p>
       <p>History: {sneaker.desc}</p>
-      <p>{sneaker.shoe_review}</p>
-      <Review reviews={review} sneaker={sneaker}/>
+      {
+        sneaker.reviews && <Review sneaker={sneaker} />
+      }
+      
       </div>
   );
 };

@@ -9,7 +9,7 @@ const Login = (props) => {
   const onSubmitHandler = e => {
     e.preventDefault();
 
-    axios.post('http://18.117.145.31/', {
+    axios.post('http://18.117.145.31/user/login/', {
       email,
       password
     })

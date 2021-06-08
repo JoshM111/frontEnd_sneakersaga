@@ -35,32 +35,36 @@ textarea {
   grid-template-columns: repeat(3, 1fr);
 }
 
+
 .registration {
   text-align: center;
 }
 
-tablet {
-  border-collapse: collapse;
-  margin: 20px 10px;
+table {
+  height: auto;
+  width: 100%;
 }
 
 th {
   padding: 12px 0px;
-  color: white;
-  background-color: blue;
+  color: black;
+  vertical-align: top;
 }
 
-td, th {
+td {
   border: 1px solid black;
-  padding: 10px;
+  padding: 10px 10px;
+  text-align: center;
 }
 
-tr:nth-child(even) {
+tr {
   background-color: #cfcfcf;
+  border: 5px solid black;
 }
 
 tr:hover {
   background-color: #8a8a8a;
+  border: 1px solid black;
 }
 
 input, select {

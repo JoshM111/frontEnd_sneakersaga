@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "@reach/router";
+import Logout from "./Logout";
 
 const AllSneakers = (props) => {
   const [allSneakers, setAllSneakers] = useState([]);
@@ -21,6 +22,7 @@ const AllSneakers = (props) => {
   return (
     <div>
       <h1>The Timeline</h1>
+      <Logout />
       <div className="container">
         {allSneakers.map((sneaker, index) => (
           <div key={index}>
